@@ -7,6 +7,6 @@ public interface CrudRepository<T> {
 
     void save(T t);
     void delete(T t);
-    void removeById(int id);
+    void removeById(Long id);
     void update(T t);
 }
