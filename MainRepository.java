@@ -105,7 +105,7 @@ public class MainRepository {
 
         if (allUsers.size() > 1) {
             long userIdToDelete = allUsers.get(1).getId();
-            userRepository.removeById((int) userIdToDelete);
+            userRepository.removeById(userIdToDelete);
             System.out.println("\nПользователь с ID " + userIdToDelete + " удален.");
         }
 
