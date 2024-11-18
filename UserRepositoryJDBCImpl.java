@@ -202,7 +202,7 @@ public class UserRepositoryJDBCImpl implements UserRepository{
 
 
     @Override
-    public void removeById(int id) {
+    public void removeById(Long id) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE_BY_ID)){
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
