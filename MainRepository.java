@@ -39,7 +39,14 @@ public class MainRepository {
             System.out.print("Пол: ");
             String gender = scanner.nextLine();
 
-            User user = new User(null,firstName, secondName, age, email, password, gender);
+            System.out.print("Марка машины: ");
+            String carBrand = scanner.nextLine();
+
+            System.out.print("Опыт работы водителем (в годах): ");
+            int drivingExperience = scanner.nextInt();
+            scanner.nextLine();
+
+            User user = new User(null, firstName, secondName, age, email, password, gender, carBrand, drivingExperience);
 
             userRepository.save(user);
             System.out.println("Пользователь успешно добавлен!");
@@ -91,6 +98,15 @@ public class MainRepository {
         System.out.println("\nПользователь с ID 1:");
         Optional<User> userById = userRepository.findById(1L);
         userById.ifPresent(System.out::println);
+
+        System.out.println("\nПользователи с маркой машины 'Toyota':");
+        List<User> usersByCarBrand = userRepository.findByCarBrand("Toyota");
+        usersByCarBrand.forEach(System.out::println);
+
+        System.out.println("\nПользователи с опытом работы водителем 5 лет и более:");
+        List<User> usersByExperience = userRepository.findByDrivingExperience(5);
+        usersByExperience.forEach(System.out::println);
+
 
 
         if (!allUsers.isEmpty()) {
